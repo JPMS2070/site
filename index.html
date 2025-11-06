@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Telefone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="log.jpg">
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Telefone</h1>
+        <input type="text" id="telefone" maxlength="13" placeholder="Ex: 88 99422-1334">
+        <div id="verifica"><button onclick="verificarTelefone()">Verificar</button></div>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        // Nosso "dicionário" de telefones
+        const contatos = {
+            "88 99275-1674": "ao Markting",
+            "88 99615-6536": "à Conta comercial",
+            "21 99876-5432": "à Camyla",
+            "85 98765-4321": "ao João Pedro"
+        };
+
+        // Função de máscara para formatar o número
+        const telefoneInput = document.getElementById("telefone");
+        telefoneInput.addEventListener("input", function(e) {
+            let valor = e.target.value.replace(/\D/g, ""); // remove tudo que não for número
+
+            if (valor.length > 2 && valor.length <= 7) {
+                valor = valor.replace(/^(\d{2})(\d+)/, "$1 $2");
+            } else if (valor.length > 7) {
+                valor = valor.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "$1 $2-$3");
+            }
+
+            e.target.value = valor;
+        });
+
+        function verificarTelefone() {
+            const telefone = telefoneInput.value.trim();
+            const resultado = document.getElementById("resultado");
+
+            if (telefone === "") {
+                resultado.textContent = "Por favor, digite um número de telefone.";
+                resultado.style.color = "orange";
+                return;
+            }
+
+            if (contatos[telefone]) {
+                resultado.innerHTML = `Telefone encontrado!<p id="teste">Pertence ${contatos[telefone]}.</p>`;
+                resultado.style.color = "green";
+            } else {
+                resultado.innerHTML = `O número ${telefone} não é nosso.`;
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
