@@ -29,11 +29,12 @@
             "88 99615-6536": "à Conta comercial",
             "88 99206-8892": "ao Ítalo",
             "88 99368-9422": "ao João Pedro",
-            "88 99208-1085": "ao Jotape",
+            "88 99208-1085": "ao João Pedro",
             "88 99929-8232": "à Sarah",
             "88 99974-5578": "ao João Filho",
-            "88 99023-5597": "à Conta Comercial"
-
+            "88 99203-5497": "à Conta Comercial",
+            "88 99263-2198": "à Gestão",
+            "88 99713-5398": "à Rose"
 
         };
 
@@ -62,10 +63,10 @@
             }
 
             if (contatos[telefone]) {
-                resultado.innerHTML = `Telefone encontrado!<p id="teste">Pertence ${contatos[telefone]}.</p>`;
+                resultado.innerHTML = `Telefone encontrado!<p id="teste">Pertence ao ${contatos[telefone]}.</p>`;
                 resultado.style.color = "green";
             } else {
-                resultado.innerHTML = `O número ${telefone} não é nosso.`;
+                resultado.innerHTML = `O número ${telefone} não pertence ao escritório.`;
                 resultado.style.color = "red";
             }
         }
