@@ -1,7 +1,6 @@
 /* ====== Estilo base ====== */
 body {
     font-family: Arial, sans-serif;
-    background: #eef1f5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +8,12 @@ body {
     min-height: 100vh; /* garante altura mínima e evita cortes em mobile */
     margin: 0;
     padding: 20px;
+    background-image: url('Background.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh;
+    margin: 0;
 }
 
 h1 {
@@ -20,11 +25,13 @@ h1 {
     background: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow:  4px 12px rgba(0,0,0,0.1);
     text-align: center;
     width: 100%;
     max-width: 350px; /* limita largura máxima */
     margin-top: 0;
+    margin-left: 100%;
+    margin-right: 100%;
 }
 
 input {
@@ -76,7 +83,7 @@ button:focus {
 }
 
 footer {
-    margin-top: 5rem;
+    margin-top: 10rem;
     text-align: center;
     color: #777;
     font-size: 14px;
@@ -88,6 +95,14 @@ footer {
     margin-right: 4%;
     margin-left: 4%;
 }
+
+.imgR:hover {
+  transform: scale(1.2);
+  transition: 0.1s;
+  background-color: #007bff;
+  border-radius: 50%;
+}
+
 
 /* ====== Responsividade ====== */
 
@@ -112,7 +127,7 @@ footer {
     }
 
     footer {
-        margin-top: 3rem;
+        margin-top: 10rem;
         font-size: 13px;
         
     }
